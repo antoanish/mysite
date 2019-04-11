@@ -1,0 +1,42 @@
+{% block content %}
+	
+	
+	<!-- Background Image -->
+	<div class="card bg-dark text-white mb-4">
+		<img src="{{ post.image.url }}" class="card-img" style="height: 21rem; object-fit: cover;">
+		
+		<!-- Text Overlay -->
+		<div class="card-body d-flex flex-column card-img-overlay">
+			<p class="card-text text-right">Featured</p>
+			<h2 class="card-title">{{ post.title }}</h2>
+			<p class="card-text">{{ post.summary }} </p>
+
+			<div class="mt-auto">
+				<a href="#" class="btn btn-light">Learn More</a>
+			</div>
+		</div>
+	</div>
+	<br>
+	
+
+	<p class="mb-0"><strong>Available Opportunites</strong></p>
+	<div class="card-deck">
+		{% for opp in opps %}
+		<div class="card bg-dark text-white overlay-card mt-4">
+			<img src="{{ opp.image.url }}" class="card-img" style="height: 18rem; object-fit: cover;">
+			<div class="card-img-overlay">
+				<h4 class="card-title">{{ opp.title }}</h4>
+				<p class="card-text">{{ opp.summary}}</p>
+				<a href="#" class="btn btn-success">Learn more</a>
+			</div>
+		</div>
+		{% if forloop.counter|divisibleby:"2"  %}
+            </div><div class="card-deck">
+        {% endif %}
+		{% endfor %}
+	</div>
+
+</div>
+
+
+{% endblock %}

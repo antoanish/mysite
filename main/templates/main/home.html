@@ -1,0 +1,15 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+	
+		{% if user.is_authenticated %}
+			{% include "main/includes/sidebar.html" %}
+		{% endif %}		
+
+			<div class="col-8">
+				<br>
+				{% include "main/includes/messages.html" %}
+				{% include "main/posts.html" with posts=posts %}
+			</div>
+
+{% endblock %}
